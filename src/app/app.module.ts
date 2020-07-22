@@ -7,23 +7,23 @@ import { AppComponent } from './app.component';
 import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
 import { CrisisListComponent } from './crisis-list/crisis-list.component';
-import { HeroListComponent } from './hero-list/hero-list.component';
 import { Route } from '@angular/compiler/src/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HeroesModule } from './heroes/heroes.module';
 
 
 @NgModule({
   imports: [ //imports not import
     BrowserModule,
     FormsModule,
+    HeroesModule,
     AppRoutingModule
    
   ],
   declarations: [
     AppComponent,
-    HeroListComponent,
     CrisisListComponent,
     PageNotFoundComponent
   ],
