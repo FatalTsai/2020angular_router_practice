@@ -1,20 +1,28 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { FirstComponent } from './first/first.component';
-import { SecondComponent } from './second/second.component';
+import { CrisisListComponent } from './crisis-list/crisis-list.component';
+import { HeroListComponent } from './hero-list/hero-list.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-
-const routes: Routes = [
-    { path: 'first-component', component: FirstComponent },
-    { path: 'second-component', component: SecondComponent },
-    { path: '',   redirectTo: '/first-component', pathMatch: 'full' }, // redirect to `first-component`
-    { path: '**', component: FirstComponent }
-    //{ path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
-  ];
+const appRoutes : Routes = [
+  {path:'crisis-center',component:CrisisListComponent},
+  {path:'heroes',       component:HeroListComponent},
+  {path:'', redirectTo:'/heroes',pathMatch:'full'},
+  {path:'**',component:PageNotFoundComponent}
+]
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports:[
+    RouterModule.forRoot(
+      appRoutes,
+      {enableTracing:true}
+    )
+  ],
+  exports:[
+    RouterModule
+  ]
+  
 })
 export class AppRoutingModule { }
